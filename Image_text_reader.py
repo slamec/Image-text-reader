@@ -4,20 +4,8 @@ root = Tk("Miro") #GUI window
 variable1 = StringVar(root)
 variable2 = StringVar(root) #create a global variable
 
-variable1.set("currency") #
-variable2.set("currency") #
-
-
-def AskForFileLocation():
-
-   input = filedialog.askopenfile(initialdir="/")
-   print(input)
-   for i in input:
-      print(i)
-
-      x = Button(base, text ='Select a .txt/.csv file', command = lambda:file_opener())
-x.pack()
-mainloop()
+variable1.set("Image location") #
+variable2.set("Location to save image") #
 
 
 def ImageToText():
