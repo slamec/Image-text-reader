@@ -1,26 +1,32 @@
+from tkinter import filedialog
 from tkinter import * #import all function from tkinter
-root = Tk("Miro") #GUI window
+import sys
+root = Tk("Miro")
 
-variable1 = StringVar(root)
-variable2 = StringVar(root) #create a global variable
+if sys.version_info[0] < 3:
+   import Tkinter as Tk
+else:
+   import tkinter as Tk
 
-variable1.set("Image location") #
-variable2.set("Location to save image") #
 
+def browse_button():
+    filename = filedialog.askopenfile()
 
 def ImageToText():
     import cv2
     import pytesseract #possible to use also PDF and so on - click one pytesseract
-    import json
     
-
     pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 
-    image = AskForFileLocation 
+    image = cv2.imread(browse_button) 
 
     st = pytesseract.image_to_string(image)
 
-    create_file = open
+    print(st)
 
-     
-
+root.configure(background = 'light green')
+root.geometry("400x175")
+v = StringVar()
+button1 = Button(text = "Image Location :", command=browse_button).grid(row=0, column=3)
+button2 = Button(text = "Convert", command =ImageToText).grid(row=0, column=4)
+mainloop() 
