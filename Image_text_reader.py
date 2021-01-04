@@ -15,15 +15,16 @@ else:
 def Browse_button():
     global directory 
     # Get the file
-    file = filedialog.askopenfilename(initialdir='C:/Users/%s')
+    directory = filedialog.askopenfilename(initialdir='C:/Users/%s')
     # Split the filepath to get the directory
-    directory = os.path.split(file)[0]
     print(directory)
 
 def ImageToText():
     import cv2
     import pytesseract #possible to use also PDF and so on - click one pytesseract
     
+    global st
+
     pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
     
     image = cv2.imread(directory)
