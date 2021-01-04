@@ -4,7 +4,8 @@ import sys
 import getpass
 # Need this for the `os.path.split` function
 import os
-root = Tk("Miro")
+root = Tk()
+root.title("Image to text converte by Miro 2021") #title of main window
 
 if sys.version_info[0] < 3:
    import Tkinter as Tk
