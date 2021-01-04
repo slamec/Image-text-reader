@@ -37,12 +37,20 @@ def ImageToText():
 
 def Save_file_as():
 
-    f = filedialog.asksaveasfile(mode='w', defaultextension=".txt")
+    ftypes = [
+    ('Word 2010', '*.docx'), 
+    ('Word 2003 - 2007', '*.doc'),
+    ('Text files', '*.txt'), 
+    ('All files', '*'), 
+    ]
+
+    f = filedialog.asksaveasfile(mode='w', filetypes = ftypes)
+
     if f is None: # asksaveasfile return `None` if dialog closed with "cancel".
         return
     text2save = st # starts from `1.0`, not `0.0`
     f.write(text2save)
-    f.close() # `()` was missing.
+    f.close() 
 
 
 #GUI driver
