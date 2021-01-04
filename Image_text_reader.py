@@ -13,7 +13,7 @@ else:
 
 
 def Browse_button():
-    global directory 
+    global directory #accesable from all functions but it should be replaced by class
     # Get the file
     directory = filedialog.askopenfilename(initialdir='C:/Users/%s')
     # Split the filepath to get the directory
@@ -23,7 +23,7 @@ def ImageToText():
     import cv2
     import pytesseract #possible to use also PDF and so on - click one pytesseract
     
-    global st
+    global st #accesable from all functions but it should be replaced by class
 
     pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
     
