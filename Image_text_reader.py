@@ -7,17 +7,17 @@ import os
 root = Tk()
 root.title("Image to text converter by Miro 2021") #title of main window
 
-if sys.version_info[0] < 3:
-   import Tkinter as Tk
-else:
-   import tkinter as Tk
-
-
 
 def Browse_button():
     global directory #accesable from all functions but it should be replaced by class
     # Get the file
-    directory = filedialog.askopenfilename(initialdir='C:/Users/%s')
+    directory = filedialog.askopenfilename(initialdir = 'C:/Users/%s', 
+                                            title = "Please select a file",
+                                            filetypes =  (("All","*.png *.jpeg"),
+                                                        ("png files","*.png"),
+                                                        ("jpeg files","*.jpeg"),
+                                                        ("gif files", ".gif")))
+
     # Split the filepath to get the directory
     print(directory)
 
@@ -37,14 +37,11 @@ def ImageToText():
 
 def Save_file_as():
 
-    ftypes = [
-    ('Word 2010', '*.docx'), 
-    ('Word 2003 - 2007', '*.doc'),
-    ('Text files', '*.txt'), 
-    ('All files', '*'), 
-    ]
-
-    f = filedialog.asksaveasfile(mode='w', filetypes = ftypes)
+  
+    f = filedialog.asksaveasfile(mode='w', title = "Save file as",
+                                filetypes = (("Word 97 - 2003", "*.doc"),
+                                            ("Word 2007", "*.docx"),
+                                            ("Text document", "*.txt")))
 
     if f is None: # asksaveasfile return `None` if dialog closed with "cancel".
         return
