@@ -49,10 +49,10 @@ def Save_file_as():
 #GUI driver
 if __name__ == "__main__":
 
-    root.configure(background = 'light green')
-    root.geometry("400x175")
+    root.configure(background = 'light blue')
+    root.geometry("360x380")
     v = StringVar()
-    button1 = Button(text = "Image Location: ", command = Browse_button).grid(row=0, column=3)
-    button2 = Button(text = "Convert", command = ImageToText).grid(row=0, column=4)
-    button3 = Button(text = "Save file as: ", command = Save_file_as,).grid(row=0, column=5)
+    button1 = Button(width = 20, height = 3, text = "Image Location: ", command = Browse_button).grid(row=0, column=2)
+    button2 = Button(width = 20, height = 3, text = "Convert", command = ImageToText).grid(row=1, column=2)
+    button3 = Button(width = 20, height = 3, text = "Save file as: ", command = Save_file_as,).grid(row=2, column=2)
     root.mainloop() #neccasery to have root and command, if not cmd window would open
