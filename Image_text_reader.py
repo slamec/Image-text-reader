@@ -1,8 +1,6 @@
 from tkinter import filedialog
 from tkinter import * #import all function from tkinter
 import sys
-import getpass
-# Need this for the `os.path.split` function
 import os
 root = Tk()
 root.title("Image to text converter by Miro 2021") #title of main window
@@ -10,19 +8,18 @@ root.title("Image to text converter by Miro 2021") #title of main window
 
 def Browse_button():
     global directory #accesable from all functions but it should be replaced by class
-    # Get the file
+    
+    # Get the file location
     directory = filedialog.askopenfilename(initialdir = 'C:/Users/%s', 
                                             title = "Please select a file",
-                                            filetypes =  (("All","*.png *.jpeg"),
+                                            filetypes =  (("All","*.png *.jpeg .*gif"),
                                                         ("png files","*.png"),
                                                         ("jpeg files","*.jpeg"),
                                                         ("gif files", ".gif")))
-
-    # Split the filepath to get the directory
     print(directory)
 
 def ImageToText():
-    import cv2
+    import cv2 #python wrapper
     import pytesseract #possible to use also PDF and so on - click one pytesseract
     
     global st #accesable from all functions but it should be replaced by class
@@ -36,9 +33,9 @@ def ImageToText():
     print(st)    
 
 def Save_file_as():
-
   
     f = filedialog.asksaveasfile(mode='w', title = "Save file as",
+                                defaultextension ='*.txt',         #defaultextension is neccasary for saving with suffix (automaticaly)
                                 filetypes = (("Word 97 - 2003", "*.doc"),
                                             ("Word 2007", "*.docx"),
                                             ("Text document", "*.txt")))
@@ -48,7 +45,6 @@ def Save_file_as():
     text2save = st # starts from `1.0`, not `0.0`
     f.write(text2save)
     f.close() 
-
 
 #GUI driver
 if __name__ == "__main__":
@@ -60,5 +56,3 @@ if __name__ == "__main__":
     button2 = Button(text = "Convert", command = ImageToText).grid(row=0, column=4)
     button3 = Button(text = "Save file as: ", command = Save_file_as,).grid(row=0, column=5)
     mainloop() 
-
-#take st and save it as text file
