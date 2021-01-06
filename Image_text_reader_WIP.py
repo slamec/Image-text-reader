@@ -2,7 +2,7 @@ from tkinter import filedialog
 from tkinter import * #import all function from tkinter
 import sys
 import os
-root = Tk()
+root = Tk() #save file as .pyw to not open cmd window (for exe file use pyinstaller)
 root.title("Image to text converter by Miro 2021") #title of main window
 
 
@@ -57,4 +57,4 @@ if __name__ == "__main__":
     button1 = Button(width = 20, height = 3, text = "Image Location: ", command = Browse_button).grid(row=0, column=2)
     button2 = Button(width = 20, height = 3, text = "Convert", command = ImageToText).grid(row=1, column=2)
     button3 = Button(width = 20, height = 3, text = "Save file as: ", command = Save_file_as,).grid(row=2, column=2)
-    root.mainloop() #neccasery to have root and command, if not cmd window would open
+    root.mainloop() 
