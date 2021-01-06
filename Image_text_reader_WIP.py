@@ -30,6 +30,7 @@ def ImageToText():
     image = cv2.imread(directory)
 
     st = pytesseract.image_to_string(image, lang='eng+ces', config='--psm 1')
+    #important to get file with proper encoding
 
     print(st)
 
