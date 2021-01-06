@@ -52,7 +52,7 @@ def Save_file_as():
 if __name__ == "__main__":
 
     root.configure(background = 'light blue')
-    root.geometry("360x380")
+    root.geometry("380x170")
     v = StringVar()
     button1 = Button(width = 20, height = 3, text = "Image Location: ", command = Browse_button).grid(row=0, column=2)
     button2 = Button(width = 20, height = 3, text = "Convert", command = ImageToText).grid(row=1, column=2)
