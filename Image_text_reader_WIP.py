@@ -21,6 +21,7 @@ def Browse_button():
 def ImageToText():
     import cv2 #python wrapper
     import pytesseract #possible to use also PDF and so on - click one pytesseract
+
     
     global st #accesable from all functions but it should be replaced by class
 
@@ -28,9 +29,9 @@ def ImageToText():
     
     image = cv2.imread(directory)
 
-    st = pytesseract.image_to_string(image)
+    st = pytesseract.image_to_string(image, lang='eng+ces', config='--psm 1')
 
-    print(st)    
+    print(st)
 
 def Save_file_as():
   
@@ -43,7 +44,7 @@ def Save_file_as():
     if f is None: # asksaveasfile return `None` if dialog closed with "cancel".
         return
     text2save = st # starts from `1.0`, not `0.0`
-    f.write(text2save)
+    f.write(text2save) 
     f.close() 
 
 #GUI driver
