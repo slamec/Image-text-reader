@@ -1,6 +1,6 @@
 ('c:\\users\\miro\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\pyinstaller-3.5-py3.7.egg',
  None,
- {'*.py', '*.cp37-win_amd64.pyd', 'EGG-INFO', '*.pyw', '*.pyd', '*.pyc'},
+ {'*.pyw', '*.py', '*.pyc', '*.cp37-win_amd64.pyd', 'EGG-INFO', '*.pyd'},
  'DATA',
  [('PyInstaller\\utils\\hooks\\subproc\\README',
    'c:\\users\\miro\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\pyinstaller-3.5-py3.7.egg\\PyInstaller\\utils\\hooks\\subproc\\README',
