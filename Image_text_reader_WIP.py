@@ -1,9 +1,11 @@
 from tkinter import filedialog
 from tkinter import * #import all function from tkinter
+import tkinter.messagebox #message box
 import sys
 import os
 root = Tk() #save file as .pyw to not open cmd window (for exe file use pyinstaller)
 root.title("Image to text converter by Miro 2021") #title of main window
+
 
 
 def Browse_button():
@@ -18,7 +20,7 @@ def Browse_button():
                                                         ("gif files", ".gif")))
     print(directory)
 
-def ImageToText():
+def Image_to_text():
     import cv2 #python wrapper
     import pytesseract #possible to use also PDF and so on - click one pytesseract
 
@@ -48,6 +50,9 @@ def Save_file_as():
     f.write(text2save) 
     f.close() 
 
+def Message_window():
+   tkinter.messagebox.showinfo( "My job is done", "Your image is converted")    
+
 #GUI driver
 if __name__ == "__main__":
 
@@ -55,6 +60,7 @@ if __name__ == "__main__":
     root.geometry("380x170")
     v = StringVar()
     button1 = Button(width = 20, height = 3, text = "Image Location: ", command = Browse_button).grid(row=0, column=2)
-    button2 = Button(width = 20, height = 3, text = "Convert", command = ImageToText).grid(row=1, column=2)
-    button3 = Button(width = 20, height = 3, text = "Save file as: ", command = Save_file_as,).grid(row=2, column=2)
+    #lamda needs to be used to call more commands via one Button
+    button2 = Button(width = 20, height = 3, text = "Convert", command = lambda:[Image_to_text(),Message_window()]).grid(row=1, column=2)
+    button3 = Button(width = 20, height = 3, text = "Save file as: ", command = Save_file_as,).grid(row=2, column=2) 
     root.mainloop() 
