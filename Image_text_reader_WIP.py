@@ -46,7 +46,7 @@ def Save_file_as():
 
     if f is None: # asksaveasfile return `None` if dialog closed with "cancel".
         return
-    text2save = st # starts from `1.0`, not `0.0`
+    text2save = st 
     f.write(text2save) 
     f.close() 
 
