@@ -6,8 +6,6 @@ import os
 root = Tk() #save file as .pyw to not open cmd window (for exe file use pyinstaller)
 root.title("Image to text converter by Miro 2021") #title of main window
 
-
-
 def Browse_button():
     global directory #accesable from all functions but it should be replaced by class
     
@@ -50,8 +48,11 @@ def Save_file_as():
     f.write(text2save) 
     f.close() 
 
-def Message_window():
-   tkinter.messagebox.showinfo( "My job is done", "Your image is converted")    
+def Message_window_convert():
+   tkinter.messagebox.showinfo( "Done", "Your image is converted")  
+
+def Message_window_save():
+   tkinter.messagebox.showinfo("My task is done" ,"Your file has been saved, see you next time!")    
 
 #GUI driver
 if __name__ == "__main__":
@@ -61,6 +62,6 @@ if __name__ == "__main__":
     v = StringVar()
     button1 = Button(width = 20, height = 3, text = "Image Location: ", command = Browse_button).grid(row=0, column=2)
     #lamda needs to be used to call more commands via one Button
-    button2 = Button(width = 20, height = 3, text = "Convert", command = lambda:[Image_to_text(),Message_window()]).grid(row=1, column=2)
-    button3 = Button(width = 20, height = 3, text = "Save file as: ", command = Save_file_as,).grid(row=2, column=2) 
+    button2 = Button(width = 20, height = 3, text = "Convert", command = lambda:[Image_to_text(),Message_window_convert()]).grid(row=1, column=2)
+    button3 = Button(width = 20, height = 3, text = "Save file as: ", command = lambda: [Save_file_as(),Message_window_save()]).grid(row=2, column=2) 
     root.mainloop() 
